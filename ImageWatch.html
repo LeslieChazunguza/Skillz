@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @font-face {
+        font-family: "FX_LED";
+        src: url("fonts/FX_LED.TTF");
+      }
+      @font-face {
+        font-family: "Hack";
+        src: url("fonts/Hack-Bold.TTF");
+      }
+      #digital-clock {
+        background-image: url(imgz/13.jpeg);
+        background-size: cover;
+        color: #ffffff55;
+        display: flex;
+        height: 400px;
+        border-radius: 2rem;
+        user-select: none;
+        padding: 0 2rem;
+        border: 0.5rem solid #2d2d2d;
+      }
+      .week {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        font-size: 2rem;
+        margin-right: 20px;
+        color: #211d1d68;
+        font-weight: bold;
+        font-family: "Hack";
+      }
+      .week .active {
+        color: white;
+      }
+      .time {
+        margin-top: 150px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      .hour,
+      .dot,
+      .min {
+        display: inline;
+        font-size: 10rem;
+      }
+      .min {
+        display: math;
+      }
+      .invisible {
+        visibility: hidden;
+      }
+      .color {
+        margin-top: 5px;
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+      button {
+        border-radius: 5px;
+        width: 30px;
+        height: 20px;
+      }
+      .color button:nth-child(1) {
+        background-color: rgb(255, 0, 200);
+      }
+      .color button:nth-child(2) {
+        background-color: rgb(0, 0, 255);
+      }
+      .color button:nth-child(3) {
+        background-color: rgb(0, 255, 0);
+      }
+      .color button:nth-child(4) {
+        background-color: gold;
+      }
+      .color button:nth-child(5) {
+        background-color: rgb(255, 0, 0);
+      }
+      .color button:nth-child(6) {
+        background-color: rgba(0, 255, 255, 0.419);
+      }
+      .color button:nth-child(7) {
+        background-color: purple;
+      }
+      .color button:nth-child(8) {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="digital-clock">
+      <div class="week">
+        <div class="active">SUN</div>
+        <div>MON</div>
+        <div>TUE</div>
+        <div>WED</div>
+        <div>THU</div>
+        <div>FRI</div>
+        <div>SAT</div>
+      </div>
+      <div class="time">
+        <div class="hour">13</div>
+        <div class="dot">:</div>
+        <div class="min">30</div>
+        <br />As Time Flows May You <br />
+        Always Be Happy <br />
+        My Love
+      </div>
+      <div class="color">
+        <button onclick="pink()"></button>
+        <button onclick="blue()"></button>
+        <button onclick="green()"></button>
+        <button onclick="gold()"></button>
+        <button onclick="red()"></button>
+        <button onclick="aqua()"></button>
+        <button onclick="purple()"></button>
+        <button onclick="yellow()"></button>
+      </div>
+    </div>
+    <script>
+      let a = document.getElementById("digital-clock");
+      function pink() {
+        a.style.color = "pink";
+      }
+      function blue() {
+        a.style.color = "blue";
+      }
+      function green() {
+        a.style.color = "green";
+      }
+      function gold() {
+        a.style.color = "gold";
+      }
+      function red() {
+        a.style.color = "red";
+      }
+      function aqua() {
+        a.style.color = "rgba(0, 255, 255, 0.419)";
+      }
+      function purple() {
+        a.style.color = "purple";
+      }
+      function yellow() {
+        a.style.color = "yellow";
+      }
+      function off() {
+        a.style.animationDuration = 0.5 + "s";
+      }
+      function on() {
+        a.style.animationDuration = 0.5 + "s";
+      }
+      const $ = (selector) => {
+        return document.querySelector(selector);
+      };
+      const hour = $(".hour");
+      const dot = $(".dot");
+      const min = $(".min");
+      const week = $(".week");
+      let showDot = true;
+
+      function update() {
+        showDot = !showDot;
+        const now = new Date();
+
+        if (showDot) {
+          dot.classList.add("invisible");
+        } else {
+          dot.classList.remove("invisible");
+        }
+        hour.textContent = String(now.getHours()).padStart(2, "0");
+        min.textContent = String(now.getMinutes()).padStart(2, "0");
+
+        Array.from(week.children).forEach((ele) => {
+          ele.classList.remove("active");
+        });
+        week.children[now.getDay()].classList.add("active");
+      }
+      setInterval(update, 500);
+    </script>
+  </body>
+</html>

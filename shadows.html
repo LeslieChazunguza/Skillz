@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #ccc;
+        font-family: "Times New Roman", Times, serif;
+      }
+      .center {
+        margin: 200px 0 0 350px;
+      }
+      h1 {
+        font-size: 5em;
+        color: rgba(0, 0, 0, 0.2);
+        position: relative;
+        margin: 0;
+        padding: 0;
+        transform-origin: bottom;
+        transform: skewX(50deg);
+      }
+      h1::before {
+        content: attr(data-title);
+        position: absolute;
+        color: #fff;
+        transform-origin: bottom;
+        transform: skewX(-50deg) translate(-23px, 2px) scaleY(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <h1 data-title="I LOVE YOU BUNNIE">I LOVE YOU BUNNIE</h1>
+    </div>
+  </body>
+</html>

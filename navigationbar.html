@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navig</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.4.2/css/all.css"
+    />
+    <style>
+      *root {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: "Times New Roman", Times, serif;
+      }
+      :root {
+        --bgColor: #25262a;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        background: var(--bgColor);
+      }
+      .navigation {
+        display: grid;
+        position: relative;
+        place-items: center;
+        width: 350px;
+        height: 60px;
+        border-radius: 8px;
+        background: #ddd;
+      }
+      ul {
+        display: flex;
+        width: 300px;
+      }
+      .list {
+        z-index: 1;
+        position: relative;
+        width: 60px;
+        height: 60px;
+        list-style: none;
+      }
+      .list a {
+        display: grid;
+        position: relative;
+        place-items: center;
+      }
+      .list .icon {
+        display: block;
+        position: relative;
+        color: var(--bgColor);
+        font-size: 1.4em;
+        margin-top: -17px;
+        justify-content: center;
+        align-items: center;
+        line-height: 60px;
+        text-align: center;
+        transition: 0.5s;
+      }
+      .list.active .icon {
+        transform: translateY(-50%);
+      }
+      .list .text {
+        position: absolute;
+        transform: translateY(20px);
+        color: var(--bgColor);
+        font-size: 0.8rem;
+        opacity: 0;
+        transition: 0.5s;
+      }
+      .list.active .text {
+        transform: translateY(5px);
+        opacity: 1;
+      }
+      .circle {
+        position: absolute;
+        top: -50%;
+        width: 50px;
+        height: 50px;
+        border: 6px solid var(--bgColor);
+        border-radius: 50%;
+        background: #2db9f0;
+        transition: 0.5s;
+      }
+      .circle::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -22px;
+        width: 20px;
+        height: 20px;
+        border-top-right-radius: 20px;
+        background: transparent;
+        box-shadow: 0px -10px 0 0 var(--bgColor);
+      }
+      .circle::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -22px;
+        width: 20px;
+        height: 20px;
+        border-top-left-radius: 20px;
+        background: transparent;
+        box-shadow: 0px -10px 0 0 var(--bgColor);
+      }
+      li:nth-child(1).list.active ~ .circle {
+        transform: translateX(0);
+      }
+      li:nth-child(2).list.active ~ .circle {
+        transform: translateX(60px);
+      }
+      li:nth-child(3).list.active ~ .circle {
+        transform: translateX(120px);
+      }
+      li:nth-child(4).list.active ~ .circle {
+        transform: translateX(180px);
+      }
+      li:nth-child(5).list.active ~ .circle {
+        transform: translateX(240px);
+      }
+      .btn {
+        display: flex;
+        width: 100px;
+        justify-content: space-between;
+      }
+      button {
+        display: flex;
+        width: 25px;
+        height: 25px;
+        align-items: center;
+        justify-content: center;
+        transform: scale(1.5);
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid;
+      }
+      img {
+        width: 25px;
+        height: 25px;
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navigation">
+      <ul>
+        <li class="list active">
+          <a href="#"
+            ><div class="icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <span class="text">Home</span></a
+          >
+        </li>
+        <li class="list">
+          <a href="#"
+            ><div class="icon">
+              <i i class="fas fa-user"></i>
+            </div>
+            <span class="text">About Us</span></a
+          >
+        </li>
+        <li class="list">
+          <a href="#"
+            ><div class="icon">
+              <i i class="fas fa-clipboard-list"></i>
+            </div>
+            <span class="text">Service</span></a
+          >
+        </li>
+        <li class="list">
+          <a href="#"
+            ><div class="icon">
+              <i i class="fas fa-image"></i>
+            </div>
+            <span class="text">Photos</span></a
+          >
+        </li>
+        <li class="list">
+          <a href="#"
+            ><div class="icon">
+              <i i class="fas fa-address-book"></i>
+            </div>
+            <span class="text">Contact</span></a
+          >
+        </li>
+        <div class="circle"></div>
+      </ul>
+      <div class="btn">
+        <button class="btn1" onclick="changeColor()">
+          <i class="fa fa-refresh"></i>
+        </button>
+        <button class="btnnav" onclick="chngColor()">
+          <i class="fa fa-refresh"></i>
+        </button>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const list = document.querySelectorAll(".list");
+      function activateLink() {
+        list.forEach((item) => item.classList.remove("active"));
+        this.classList.add("active");
+      }
+      list.forEach((item) => item.addEventListener("click", activateLink));
+      const lis = document.querySelector(".circle");
+      const btn1 = document.querySelector(".btn1");
+      function changeColor() {
+        lis.style.background = "red";
+      }
+      function changeColor() {
+        // Get a random number between 64 to 256
+        // (for getting lighter colors)
+        let red = Math.floor(Math.random() * 256) + 64;
+        let green = Math.floor(Math.random() * 256) + 64;
+        let blue = Math.floor(Math.random() * 256) + 64;
+
+        // Construct a color with the given values
+        let bgColor = "rgb(" + red + ", " + green + ", " + blue + ")";
+
+        // Set the background to the new color
+        lis.style.background = bgColor;
+        btn1.style.background = bgColor;
+      }
+      const nav = document.querySelector(".navigation");
+      const btnnav = document.querySelector(".btnnav");
+      function chngColor() {
+        lis.style.background = "red";
+      }
+      function chngColor() {
+        // Get a random number between 64 to 256
+        // (for getting lighter colors)
+        let red = Math.floor(Math.random() * 256) + 64;
+        let green = Math.floor(Math.random() * 256) + 64;
+        let blue = Math.floor(Math.random() * 256) + 64;
+
+        // Construct a color with the given values
+        let bgColor = "rgb(" + red + ", " + green + ", " + blue + ")";
+
+        // Set the background to the new color
+        nav.style.background = bgColor;
+        btnnav.style.background = bgColor;
+      }
+    </script>
+  </body>
+</html>

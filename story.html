@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      body {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: #343f4f;
+      }
+      .wrapper {
+        display: flex;
+      }
+      .wrapper .static {
+        color: #fff;
+        margin-top: 5px;
+        font-size: 30px;
+        font-weight: 200;
+      }
+      .wrapper .dynamic {
+        margin-left: 7.5px;
+        height: 45px;
+        line-height: 45px;
+        overflow: hidden;
+      }
+      .dynamic li {
+        list-style: none;
+        font-size: 30px;
+        color: gold;
+        position: relative;
+        top: 0;
+        animation: txt 6s steps(4) infinite;
+      }
+      @keyframes txt {
+        100% {
+          top: -180px;
+        }
+      }
+      .dynamic li span {
+        position: relative;
+      }
+      .dynamic li span::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: #343f4f;
+        border-left: 2px solid gold;
+        animation: type 1.5s steps(20) infinite;
+      }
+      @keyframes type {
+        100% {
+          left: 100%;
+          margin: 0 -17.5px 0 17.5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="static">I</div>
+      <ul class="dynamic">
+        <li><span>Need You Mamasita</span></li>
+        <li><span>Love You Bunnie</span></li>
+        <li><span>Need You Babe</span></li>
+        <li><span>Love You Wifie</span></li>
+      </ul>
+    </div>
+  </body>
+</html>

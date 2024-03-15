@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        justify-content: center;
+      }
+      .gallery {
+        margin-top: 50px;
+        margin-left: 90px;
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        height: 500px;
+      }
+      .item {
+        flex: 1;
+        height: 100%;
+        border-radius: 5px;
+      }
+      .item:nth-child(1) {
+        background-image: url(imgz/Designer.png);
+      }
+      .item:nth-child(2) {
+        background-image: url(imgz/4.jpg);
+      }
+      .item:nth-child(3) {
+        background-image: url(imgz/5.jpg);
+      }
+      .item:nth-child(4) {
+        background-image: url(imgz/9.jpg);
+      }
+      .item:nth-child(5) {
+        background-image: url(imgz/13.jpeg);
+      }
+      .item {
+        opacity: 0.6;
+        background-position: center;
+        background-size: cover;
+        transition: flex 0.8s ease-in-out;
+      }
+      .item:hover {
+        flex: 5;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </body>
+</html>

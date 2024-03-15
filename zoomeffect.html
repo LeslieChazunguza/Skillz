@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .zoom-wrap {
+        height: 200px;
+        overflow: hidden;
+        border-radius: 16px;
+      }
+      .zoom-wrap img {
+        object-fit: cover;
+        transition: transform 0.8s;
+        height: 100%;
+      }
+      .zoom-wrap:hover img {
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="zoom-wrap">
+      <img src="imgz/13.jpeg" alt="" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin-top: 100px;
+        height: 100vh;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: black;
+      }
+      .lanten {
+        height: 150px;
+        width: 100px;
+        margin-top: 400px;
+        background: rgb(255, 7, 7);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        animation: up 50s infinite;
+        box-shadow: 1px 1px 50px 10px red;
+        border-radius: 20px;
+      }
+      .lanten::after {
+        content: "";
+        opacity: 80%;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        position: absolute;
+        background: rgb(255, 221, 0);
+        animation: light 5s infinite;
+      }
+      @keyframes light {
+        0%,
+        100% {
+          box-shadow: 1px 1px 20px 10px rgb(255, 221, 0);
+        }
+        50% {
+          box-shadow: 1px 1px 20px 15px rgb(255, 221, 0);
+        }
+      }
+      @keyframes up {
+        0%,
+        100% {
+          transform: translateY(0vh);
+        }
+        50% {
+          transform: translateY(-60vh);
+        }
+        90% {
+          transform: translateY(0px);
+        }
+      }
+      .lanten:nth-child(2) {
+        animation: up 40s infinite;
+        background: rgb(60, 255, 0);
+        box-shadow: 1px 1px 50px 10px rgb(60, 255, 0);
+      }
+      .lanten:nth-child(3) {
+        animation: up 55s infinite;
+        background: rgb(0, 8, 255);
+        box-shadow: 1px 1px 50px 10px rgb(0, 8, 255);
+      }
+      .lanten:nth-child(4) {
+        animation: up 45s infinite;
+        background: rgb(183, 0, 255);
+        box-shadow: 1px 1px 50px 10px rgb(183, 0, 255);
+      }
+      @media (max-width: 650px) {
+        .lanten:nth-child(4) {
+          display: none;
+        }
+      }
+      @media (max-width: 500px) {
+        .lanten:nth-child(3) {
+          display: none;
+        }
+      }
+      @media (max-width: 300px) {
+        .lanten:nth-child(2) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lanten"></div>
+    <div class="lanten"></div>
+    <div class="lanten"></div>
+    <div class="lanten"></div>
+  </body>
+</html>
